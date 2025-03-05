@@ -1,0 +1,30 @@
+set(CROSS_COMPILE arm-none-eabi-)
+find_program(CMAKE_C_COMPILER ${CROSS_COMPILE}gcc)
+find_program(CMAKE_CXX_COMPILER ${CROSS_COMPILE}g++)
+find_program(CMAKE_ASM_COMPILER ${CROSS_COMPILE}gcc)
+
+find_program(CMAKE_OBJCOPY ${CROSS_COMPILE}objcopy)
+find_program(CMAKE_OBJDUMP ${CROSS_COMPILE}objdump)
+find_program(CMAKE_AS ${CROSS_COMPILE}as)
+find_program(CMAKE_AR ${CROSS_COMPILE}ar)
+find_program(CMAKE_RANLIB ${CROSS_COMPILE}ranlib)
+find_program(CMAKE_READELF ${CROSS_COMPILE}readelf)
+find_program(CMAKE_NM ${CROSS_COMPILE}nm)
+find_program(CMAKE_STRIP ${CROSS_COMPILE}strip)
+find_program(CMAKE_SIZE ${CROSS_COMPILE}size)
+find_program(CMAKE_GDB ${CROSS_COMPILE}gdb)
+
+set(CMAKE_C_COMPILER_WORKS 1)
+set(CMAKE_CXX_COMPILER_WORKS 1)
+
+SET(CMAKE_SYSTEM_NAME Generic)
+SET(CMAKE_SYSTEM_VERSION 1)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_STANDARD 99)
+
+if(NOT EXISTS "${CMAKE_C_COMPILER}")
+    # message(WARNING "The specified toolchain path does not exist: ${CMAKE_C_COMPILER}")
+else()
+    message(STATUS "Toolchain path exists: ${CMAKE_C_COMPILER}")
+endif()
